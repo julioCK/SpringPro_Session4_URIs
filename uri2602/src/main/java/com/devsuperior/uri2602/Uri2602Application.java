@@ -23,8 +23,13 @@ public class Uri2602Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		List<CustomerMinProjection> list = customerRepository.search1("RS");
-		List<CustomerMinDTO> result = list.stream().map(x -> new CustomerMinDTO(x)).collect(Collectors.toList());
+
+		//search1: busca com projection e SQL puro
+		//List<CustomerMinProjection> list = customerRepository.search1("RS");
+		//List<CustomerMinDTO> result = list.stream().map(x -> new CustomerMinDTO(x)).collect(Collectors.toList());
+
+		//search2: busca direto com DTO e JPQL
+		List<CustomerMinDTO> result = customerRepository.search2("rS");
 
 		for(CustomerMinDTO c : result) {
 			System.out.println(c.toString());
