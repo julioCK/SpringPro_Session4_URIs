@@ -1,4 +1,4 @@
-package com.devsuperior.uri2602.projections;
+package com.devsuperior.uri2611.projections;
 
 public interface MovieProjection {
     Long getId();
