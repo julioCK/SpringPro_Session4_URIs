@@ -3,6 +3,7 @@ package com.devsuperior.uri2737.entities;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "lawyers")
