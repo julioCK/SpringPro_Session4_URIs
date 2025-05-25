@@ -17,19 +17,19 @@ public class Empregado2 {
     private Double salario;
 
     /* Essa entidade possui um auto-relacionamento
-    *   Empregado pode ser tanto Empregado normal, como Empregado supervisor2 ou Empregado gerente
-    *   Essa modelagem é adequada nos casos onde empregado normal, supervisor2 e gerente NÃO POSSUM ATRIBUTOS OU FUNÇÕES QUE OS DIFERENCIEM */
+    *   Empregado pode ser tanto Empregado normal, como Empregado supervisor ou Empregado gerente
+    *   Essa modelagem é adequada nos casos onde empregado normal, supervisor e gerente NÃO POSSUM ATRIBUTOS OU FUNÇÕES QUE OS DIFERENCIEM */
 
 
-    /* Esse atributo só será preenchido se a instancia for empregado normal (não empregado supervisor2, nem gerente).
-    *  Imagine ESSA instancia como empregado(empregado) se relacionando com outra instância empregado(supervisor2) separada.
+    /* Esse atributo só será preenchido se a instancia for empregado normal (não empregado supervisor, nem gerente).
+    *  Imagine ESSA instancia como empregado(empregado) se relacionando com outra instância empregado(supervisor) separada.
     *  Aqui (empregado normal) seria o lado N, portanto o relacionamento desse lado seria @ManyToOne    */
     @ManyToOne
     @JoinColumn(name = "cpf_supervisor") // na tabela existe esse campo, mas aqui na classe não, pois o cpf do supervisor2 estara em supervisor2.cpf (acessado atraves de supervisor2.getCpf)
     private Empregado2 supervisor2;
 
-    /* Agora imagine essa instancia como empregado(supervisor2) se relacionando com outra instancia empregado(empregado) separada.
-    *  Aqui (empregado supervisor2) seria o lado 1, portanto o relacionamento desse lado seria @OneToMany    */
+    /* Agora imagine essa instancia como empregado(supervisor) se relacionando com outra instancia empregado(empregado) separada.
+    *  Aqui (empregado supervisor) seria o lado 1, portanto o relacionamento desse lado seria @OneToMany    */
     @OneToMany(mappedBy = "supervisor2") //
     private List<Empregado2> supervisionados = new ArrayList<>();
 
